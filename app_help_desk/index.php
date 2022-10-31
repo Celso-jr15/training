@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  echo $_SESSION['autenticado'];
+?>
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -44,6 +49,12 @@
                 <?php if (isset($_GET['login']) && $_GET['login']  == 'erro_login'){ ?>
                   <div class="text-danger">
                     Usuário o usenha inválido
+                  </div>                   
+                <?php } ?>
+
+                <?php if (isset($_GET['login']) && $_GET['login']  == 'erro_login2'){ ?>
+                  <div class="text-danger">
+                   Página protegida. Faça seu login.
                   </div>                   
                 <?php } ?>
 
