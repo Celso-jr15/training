@@ -2,6 +2,8 @@
   require_once("validar_acesso.php"); 
 ?>  
 <?php
+ 
+
   $chamados = array();
 
   $arquivo = fopen('arquivo.hd', 'r');
@@ -54,15 +56,27 @@
               
             <?php
             $chamado_dados = explode('#', $chamado);
+
+            
+            if($_SESSION['perfil_id']==2){     
+              // só vamos exibir o chamado do próprio usuário
+                if($_SESSION['id'] != $chamado_dados[0]){
+                  continue;
+                }
+
+            }
+
+
+
             if(count($chamado_dados) < 3 ){  //VRF se há 3 campos na linha, se sim, continua.
               continue;
             }
             ?>             
               <div class="card mb-3 bg-light">
                 <div class="card-body">
-                  <h5 class="card-title"><?=$chamado_dados[0] ?></h5>
-                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[1] ?></h6>
-                  <p class="card-text"><?=$chamado_dados[2] ?></p>
+                  <h5 class="card-title"><?=$chamado_dados[1] ?></h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><?=$chamado_dados[2] ?></h6>
+                  <p class="card-text"><?=$chamado_dados[3] ?></p>
                 </div>
               </div>
             <?php } ?>
