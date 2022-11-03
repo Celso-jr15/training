@@ -1,6 +1,6 @@
 <?php
   session_start();
-  echo $_SESSION['autenticado'];
+  //echo $_SESSION['autenticado'];
 ?>
 
 <html>
