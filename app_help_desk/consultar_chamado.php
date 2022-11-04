@@ -6,7 +6,7 @@
 
   $chamados = array();
 
-  $arquivo = fopen('arquivo.hd', 'r');
+  $arquivo = fopen('seguro/arquivo.hd', 'r');
 
 
   while (!feof($arquivo)){ // teste pelo fim do arquivo.. Linha por linha até chegar no final
